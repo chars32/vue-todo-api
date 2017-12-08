@@ -12,22 +12,38 @@ mongoose.connect('mongodb://localhost:27017/MyTodoApp', {
 // Declaramos el modelo
 var Todo = mongoose.model('Todo', {
   title: {
-    type: String
+    type: String,
+    required: true,
+    minlength: 1,
+    trim: true
   },
   description: {
-    type: String
+    type: String,
+    required: true,
+    minlength: 1,
+    trim: true
   },
   label: {
-    type: String
+    type: String,
+    required: true,
+    minlength: 1,
+    trim: true
   },
   date: {
-    type: String
+    type: String,
+    required: true,
+    minlength: 1,
+    trim: true
   },
   time: {
-    type: String
+    type: String,
+    required: true,
+    minlength: 1,
+    trim: true
   },
   completed: {
-    type: Boolean
+    type: Boolean,
+    default: false
   }
 });
 
@@ -48,11 +64,11 @@ var Todo = mongoose.model('Todo', {
 // });
 
 var otherNewTodo = new Todo({
-  title: 'Otra vez probando Moongose',
-  description: 'Otra descripción cualquiera',
-  label: 'Work',
+  title: '    Probando los espacios y el completed default false   ',
+  description: 'Se debe de guardar',
+  label: 'Hobby',
   date: '2018-03-04',
-  completed: false
+  time: '08:30 pm'
 })
 
 otherNewTodo.save().then((doc) => {
